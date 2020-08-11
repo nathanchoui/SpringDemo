@@ -1,0 +1,2 @@
+org.springframework.context.ApplicationContextInitializer=\
+  com.github.nathan.reactive.study.initializer.FirstInitializer

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 启动自动扫描该包下所有的Bean(例如@Controller) -->
+<!--    <context:component-scan base-package="com.spider" />-->
+
+
+    <bean id="student" class="com.github.nathan.springframework.Student" >
+        <!-- 通过构造方法设置属性值 -->
+        <constructor-arg index="1" value="30"></constructor-arg>
+        <constructor-arg index="0" value="nathan"></constructor-arg>
+    </bean>
+
+<!--    <bean id="sonnect29" class="com.springinaction.springidol.Sonnet29"></bean>-->
+
+<!--    <bean id="poeticPoem" class="com.springinaction.springidol.PoeticJuggler">-->
+<!--        <constructor-arg value="15"></constructor-arg>-->
+<!--        <constructor-arg ref="sonnect29"></constructor-arg>-->
+<!--    </bean>-->
+
+<!--    &lt;!&ndash; 建立一个Instrumentalist bean-->
+<!--    @通过property为bean设置属性值,一旦instrumentalist被实例化，则对象会被赋此值-->
+<!--&ndash;&gt;-->
+<!--    <bean id="Kenny" class="com.springinaction.springidol.Instrumentalist">-->
+<!--        <property name="song" value="Jingle Bells"></property>-->
+<!--        <property name="age" value="37"></property>-->
+
+<!--        &lt;!&ndash; 这种做法可以实现接口与类的松耦合,比如下面两个都实现了Instrument接口的乐器类，Kenny bean可以随意引用 &ndash;&gt;-->
+<!--        &lt;!&ndash;-->
+<!--        <property name="instrument" ref="saxphone"></property>-->
+<!--        <property name="instrument" ref="piano"></property>-->
+<!--        &ndash;&gt;-->
+<!--        &lt;!&ndash; 内部bean的使用方式，这里用在property，constructor里面也是一样用 &ndash;&gt;-->
+<!--        <property name="instrument">-->
+<!--            <bean class="com.springinaction.springidol.piano"></bean>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    <bean id="saxphone" class="com.springinaction.springidol.saxphone"></bean>-->
+<!--    <bean id="piano" class="com.springinaction.springidol.piano"></bean>-->
+
+<!--    &lt;!&ndash; p命名空间用法 &ndash;&gt;-->
+<!--    <bean id="Kenny2" class="com.springinaction.springidol.Instrumentalist"-->
+<!--          p:song="Lemon Tree" p:age="30" p:instrument-ref="saxphone"    >-->
+<!--    </bean>-->
+
+<!--    &lt;!&ndash; 为集合配置bean &ndash;&gt;-->
+<!--    <bean id="hank" class="com.springinaction.springidol.OneManBand">-->
+<!--        <property name="instruments">-->
+<!--            <list>-->
+<!--                <ref bean="piano" />-->
+<!--                <ref bean="saxphone" />-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        <property name="instruments2">-->
+<!--            <map>-->
+<!--                <entry key="piano" value-ref="piano"></entry>-->
+<!--                <entry key="saxphone" value-ref="saxphone"></entry>-->
+<!--            </map>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    &lt;!&ndash; properties的写法 &ndash;&gt;-->
+<!--    <bean id="hank2" class="com.springinaction.springidol.OneManBand">-->
+<!--        <property name="instruments">-->
+<!--            <props>-->
+<!--                &lt;!&ndash; key和value都为String &ndash;&gt;-->
+<!--                <prop key="piano">la la la</prop>-->
+<!--                <prop key="saxphone">ta ta ta</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    &lt;!&ndash; 赋null值 &ndash;&gt;-->
+<!--    &lt;!&ndash;-->
+<!--    ...-->
+<!--        <property name="xxx"><null/></property>-->
+<!--    ...-->
+<!--     &ndash;&gt;-->
+
+<!--    &lt;!&ndash; 配置一个切面 &ndash;&gt;-->
+<!--    <aop:config>-->
+<!--        <aop:aspect id="helloWorldAspect" ref="helloWorldAspectBean">-->
+<!--            &lt;!&ndash; 配置切点 &ndash;&gt;-->
+<!--            <aop:pointcut id="helloWorldServicePointcut" expression="execution(* com.gao.spring.aop.*.*(..))" />-->
+
+<!--            &lt;!&ndash; 配置前置通知 &ndash;&gt;-->
+<!--            <aop:before pointcut-ref="helloWorldServicePointcut" method="beforeAdvice" />-->
+<!--            &lt;!&ndash; 配置前置通知 &ndash;&gt;-->
+<!--            <aop:after pointcut-ref="helloWorldServicePointcut" method="afterAdvice" />-->
+<!--            &lt;!&ndash; 配置后置返回通知 &ndash;&gt;-->
+<!--            <aop:after-returning pointcut-ref="helloWorldServicePointcut" method="afterReturnAdvice" returning="result" />-->
+<!--            &lt;!&ndash; 配置环绕通知 &ndash;&gt;-->
+<!--            <aop:around pointcut-ref="helloWorldServicePointcut" method="aroundAdvice" />-->
+<!--            &lt;!&ndash; 异常通知 &ndash;&gt;-->
+<!--            <aop:after-throwing pointcut-ref="helloWorldServicePointcut" method="throwingAdvice" throwing="e" />-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+
+<!--    &lt;!&ndash; 配置一个切面with arg &ndash;&gt;-->
+<!--    <aop:config>-->
+<!--        <aop:aspect id="jokerTheMindReader" ref="joker">-->
+<!--            &lt;!&ndash; 配置切点 &ndash;&gt;-->
+<!--            <aop:pointcut id="cycloneTheThinker" expression="execution(* com.gao.spring.aop.args.CycloneTheThinker.thinkOfSomeThing(String)) and args(thought)" />-->
+
+<!--            &lt;!&ndash; 配置前置通知 &ndash;&gt;-->
+<!--            <aop:before pointcut-ref="cycloneTheThinker" method="intercepetThought" arg-names="thought" />-->
+<!--        </aop:aspect>-->
+
+<!--    </aop:config>-->
+
+
+
+<!--    &lt;!&ndash; 导入其他文件 &ndash;&gt;-->
+
+<!--    <import resource="applicationContext-mongodb.xml"/>-->
+
+<!--    <import resource="applicationContext-msg.xml"/>-->
+<!--    <import resource="applicationContext-activity.xml"/>-->
+<!--    <import resource="applicationContext-jobs.xml"/>-->
+<!--    <import resource="applicationContext-tgk.xml"/>-->
+<!--    <import resource="applicationContext-hessian.xml"/>-->
+
+
+
+<!--    &lt;!&ndash; 加入spring注解 &ndash;&gt;-->
+
+<!--    <context:annotation-config />-->
+
+
+
+<!--    &lt;!&ndash; 激活aop自动代理功能，要保证xml文件头有aop的引用 &ndash;&gt;-->
+<!--    <aop:aspectj-autoproxy proxy-target-class="true" />-->
+
+</beans>
